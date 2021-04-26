@@ -27,7 +27,8 @@ export const listObjects = async (bucket: string, prefix: string = "", searchPat
     }).promise();
 
     // @ts-ignore
-    let batch: string[] = response.Contents.map((item: Object) => item.Key);
+    let batch: string[] = response.Contents.map((item: Object) => item.Key as string)
+      .filter((key: string) => !key.endsWith("/"));
 
     if(searchPath) {
       batch = batch.filter((key: string) => key.match(searchPath));
@@ -41,10 +42,3 @@ export const listObjects = async (bucket: string, prefix: string = "", searchPat
 
   return results;
 };
-
-(async () => {
-  const r = await listObjects('pedro-test-bucket-123', 'testFolder', '.*student.*');
-
-  console.log(r)
-})()
-//pedr

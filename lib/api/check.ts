@@ -18,10 +18,3 @@ export const objectExists = async (bucket: string, key: string): Promise<boolean
   }
   return true;
 };
-
-(async () => {
-  const r = await objectExists('pedro-test-bucket-123', 'present perfect (grammar).pdf');
-
-  console.log(r)
-})()
-//pedro-test-bucket-123
