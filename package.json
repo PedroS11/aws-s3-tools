@@ -58,15 +58,15 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier && lint-staged && npm run test && npm run typedoc"
+      "pre-commit": "npm run prettier && lint-staged && npm run test && npm run typedoc && git add docs/"
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
+    "lib/**/*.js": [
+      "npm run lint"
     ],
-    "*.ts": [
-      "eslint --fix"
+    "lib/**/*.ts": [
+      "npm run lint"
     ]
   },
   "nyc": {
