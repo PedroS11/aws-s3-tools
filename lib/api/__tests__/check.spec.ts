@@ -8,27 +8,27 @@ describe("check", () => {
     headObjectSpy = jest.fn();
     // @ts-ignore
     jest.spyOn(AWS, "S3").mockImplementation(() => ({
-        headObject: headObjectSpy
-      }));
+      headObject: headObjectSpy,
+    }));
   });
 
   afterEach(() => jest.restoreAllMocks());
 
   it("should be called with the correct params", async () => {
     headObjectSpy.mockReturnValue({
-      promise: jest.fn()
+      promise: jest.fn(),
     });
     await objectExists("BucketName", "FileName");
 
     expect(headObjectSpy).toBeCalledWith({
       Bucket: "BucketName",
-      Key: "FileName"
+      Key: "FileName",
     });
   });
 
   it("should return true if the file exists", async () => {
     headObjectSpy.mockReturnValue({
-      promise: jest.fn()
+      promise: jest.fn(),
     });
     expect(await objectExists("BucketName", "FileName")).toBeTruthy();
   });

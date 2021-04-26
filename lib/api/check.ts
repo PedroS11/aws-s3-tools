@@ -6,13 +6,16 @@ import AWS, { S3 } from "aws-sdk";
  * @param {string} key - Full key for the object
  * @returns {boolean} - true if the object exists, otherwise false
  */
-export const objectExists = async (bucket: string, key: string): Promise<boolean> => {
+export const objectExists = async (
+  bucket: string,
+  key: string
+): Promise<boolean> => {
   try {
-    AWS.config.loadFromPath('./config.json');
+    AWS.config.loadFromPath("./config.json");
 
-    const s3: S3 = new AWS.S3({apiVersion: '2006-03-01'});
+    const s3: S3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
-    await s3.headObject({Bucket: bucket, Key: key}).promise();
+    await s3.headObject({ Bucket: bucket, Key: key }).promise();
   } catch (error) {
     return false;
   }
