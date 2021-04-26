@@ -27,6 +27,25 @@ AWS S3 Tools is a NPM package to make it easier to deal with S3 objects.
 ## Documentation
 The full list of methods supported by this module can be found [here](https://pedros11.github.io/aws-s3-tools/index.html).
 
+
+## Authentication
+
+To use this package, it's necessary to authenticate to AWS, using one of two options:
+- Load credentials from a json file
+
+ ```sh
+ AWS.config.loadFromPath("./config.json");
+ // call methods
+ ```
+ 
+ For more information, visit [Authenticate with json file](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-json-file.html).
+ - Load credentials from Shared Credentials file
+ 
+  ```sh
+  AWS.config.credentials = new AWS.SharedIniFileCredentials({profile: 'work-account'});
+  // call methods
+  ```
+For more information, visit [Authenticate with Shared Credentials file](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html).
 ## Tests
 
 To run the tests for this project:

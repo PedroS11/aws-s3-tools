@@ -11,8 +11,6 @@ export const objectExists = async (
   key: string
 ): Promise<boolean> => {
   try {
-    AWS.config.loadFromPath("./config.json");
-
     const s3: S3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
     await s3.headObject({ Bucket: bucket, Key: key }).promise();

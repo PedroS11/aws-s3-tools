@@ -20,8 +20,6 @@ export const listObjects = async (
   let response: ListObjectsV2Output;
 
   do {
-    AWS.config.loadFromPath("./config.json");
-
     const s3: S3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
     response = await s3
