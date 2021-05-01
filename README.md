@@ -25,12 +25,12 @@ AWS S3 Tools is a NPM package to make it easier to deal with S3 objects.
  yarn add aws-s3-tools
  ```
 ## Documentation
-The full list of methods supported by this module can be found [here](https://pedros11.github.io/aws-s3-tools/index.html).
+The full list of methods supported by this module can be found [here](https://pedros11.github.io/aws-s3-tools/modules.html).
 
 
 ## Authentication
 
-To use this package, it's necessary to authenticate to AWS, using one of two options:
+To use this package, it's necessary to authenticate to AWS, using one of three options:
 - Load credentials from a json file
 
  ```sh
@@ -46,6 +46,18 @@ To use this package, it's necessary to authenticate to AWS, using one of two opt
   // call methods
   ```
 For more information, visit [Authenticate with Shared Credentials file](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html).
+
+ - Load ClientId, ClientSecret and Region directly 
+  ```sh
+ AWS.config.update({
+   accessKeyId: CLIENT_ID,
+   secretAccessKey: CLIENT_SECRET,
+   region: REGION
+ });
+ // call methods
+  ```
+  For more information, visit [Authenticate with Environment Variables](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html).
+
 ## Tests
 
 To run the tests for this project:

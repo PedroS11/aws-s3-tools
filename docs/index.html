@@ -85,11 +85,11 @@
 				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
 					<h2>Documentation</h2>
 				</a>
-				<p>The full list of methods supported by this module can be found <a href="https://pedros11.github.io/aws-s3-tools/index.html">here</a>.</p>
+				<p>The full list of methods supported by this module can be found <a href="https://pedros11.github.io/aws-s3-tools/modules.html">here</a>.</p>
 				<a href="#authentication" id="authentication" style="color: inherit; text-decoration: none;">
 					<h2>Authentication</h2>
 				</a>
-				<p>To use this package, it&#39;s necessary to authenticate to AWS, using one of two options:</p>
+				<p>To use this package, it&#39;s necessary to authenticate to AWS, using one of three options:</p>
 				<ul>
 					<li>Load credentials from a json file</li>
 				</ul>
@@ -104,6 +104,16 @@
 <span style="color: #000000">// call methods</span>
 </code></pre>
 				<p>For more information, visit <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html">Authenticate with Shared Credentials file</a>.</p>
+				<ul>
+					<li>Load ClientId, ClientSecret and Region directly <pre><code class="language-sh"><span style="color: #000000">AWS.config.update({</span>
+<span style="color: #000000">accessKeyId: CLIENT_ID,</span>
+<span style="color: #000000">secretAccessKey: CLIENT_SECRET,</span>
+<span style="color: #000000">region: REGION</span>
+<span style="color: #000000">});</span>
+<span style="color: #000000">// call methods</span>
+</code></pre>
+					For more information, visit <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html">Authenticate with Environment Variables</a>.</li>
+				</ul>
 				<a href="#tests" id="tests" style="color: inherit; text-decoration: none;">
 					<h2>Tests</h2>
 				</a>
@@ -132,6 +142,12 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/check.html">check</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/delete.html">delete</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/download.html">download</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/list.html">list</a>

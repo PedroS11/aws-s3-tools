@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>check | aws-s3-tools</title>
+	<title>download | aws-s3-tools</title>
 	<meta name="description" content="Documentation for aws-s3-tools">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">aws-s3-tools</a>
 				</li>
 				<li>
-					<a href="check.html">check</a>
+					<a href="download.html">download</a>
 				</li>
 			</ul>
-			<h1>Module check</h1>
+			<h1>Module download</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="check.html#objectexists" class="tsd-kind-icon">object<wbr>Exists</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="download.html#downloadobject" class="tsd-kind-icon">download<wbr>Object</a></li>
 							</ul>
 						</section>
 					</div>
@@ -81,16 +81,16 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="objectexists" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> object<wbr>Exists</h3>
+					<a name="downloadobject" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> download<wbr>Object</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">object<wbr>Exists<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">download<wbr>Object<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, localFilename<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/4a16913/lib/api/check.ts#L9">check.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/4a16913/lib/api/download.ts#L12">download.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -112,11 +112,14 @@
 										<p>Full key for the object</p>
 									</div>
 								</li>
+								<li>
+									<h5>localFilename: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Local file where the data will be downloaded to</p>
+									</div>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<ul>
-								<li>true if the object exists, otherwise false</li>
-							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -128,13 +131,13 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="check.html">check</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="delete.html">delete</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="download.html">download</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -145,7 +148,7 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="check.html#objectexists" class="tsd-kind-icon">object<wbr>Exists</a>
+						<a href="download.html#downloadobject" class="tsd-kind-icon">download<wbr>Object</a>
 					</li>
 				</ul>
 			</nav>
