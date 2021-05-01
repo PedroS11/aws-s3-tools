@@ -3,7 +3,7 @@ import { GetObjectOutput } from "aws-sdk/clients/s3";
 import { promises as fsPromises } from "fs";
 
 /**
- * Check if an object exists for a given bucket and key
+ * Retrieve one object from AWS S3 bucket and store into local disk
  * @param {string} bucket - Bucket name where the object is stored
  * @param {string} key - Full key for the object
  * @param {string} localFilename - Local file where the data will be downloaded to

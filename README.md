@@ -25,7 +25,52 @@ AWS S3 Tools is a NPM package to make it easier to deal with S3 objects.
  yarn add aws-s3-tools
  ```
 ## Documentation
-The full list of methods supported by this module can be found [here](https://pedros11.github.io/aws-s3-tools/modules.html).
+
+### Check
+
+- Check if an object exists in a S3 bucket
+
+ ```typescript
+const exists: boolean = await objectExists("BucketName", "FileName");
+ ```
+
+### List
+
+- List all objects in a S3 bucket (with filter options)
+
+ ```typescript
+const keysList: string[] = await listObjects("BucketName", "FolderName");
+ ```
+
+### Delete
+
+- Delete an object in a S3 bucket
+ ```typescript
+await deleteMethods.deleteObject("BucketName", "existingFile.pdf");
+```
+- Delete all objects under a prefix
+
+ ```typescript
+await deleteFromPrefix("BucketName", "folder");
+ ```
+
+- Delete all objects in the keys list from S3 bucket
+ 
+ ```typescript
+const keys = ["folder/test.pdf", "folder/file.csv"];
+await deleteFromKeys("BucketName", keys);
+ ```
+
+### Download
+
+- Retrieve one object from AWS S3 bucket and store into local disk
+
+ ```typescript
+await downloadObject("BucketName","existingFile.pdf", "downloadedFile.pdf");
+ ```
+---
+
+The documentation for each method supported by this module can be found [here](https://pedros11.github.io/aws-s3-tools/modules.html).
 
 
 ## Authentication
