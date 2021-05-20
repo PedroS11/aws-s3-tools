@@ -87,6 +87,26 @@ await deleteFromKeys("BucketName", keys);
  ```typescript
 await downloadObject("BucketName","existingFile.pdf", "downloadedFile.pdf");
  ```
+ 
+ ### Upload
+ 
+- Upload one file from local disk and store into AWS S3 bucket
+
+```typescript
+await uploadObject("BucketName","s3file.pdf", "localFile.pdf");
+  ```
+  
+- Upload list of files to specific objects
+
+```typescript
+await uploadObjects("BucketName",[{ key: "s3file.pdf", localFilename: "localFile.pdf" }]);
+```
+
+- Upload all files for a given folder (just root files) and store them into a S3 bucket under a prefix  (with filter options)
+
+```typescript
+await uploadFolderToPrefix("BucketName", "s3Folder", "localFolder");
+```
 ---
 
 The documentation for each method supported by this module can be found [here](https://pedros11.github.io/aws-s3-tools/modules.html).

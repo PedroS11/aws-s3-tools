@@ -8,7 +8,7 @@ import {
 } from "../domain/upload";
 
 /**
- * Move S3 object from source bucket and key to destination
+ * Upload one file from local disk and store into AWS S3 bucket
  * @param {string} bucket - S3 bucket where the object is stored
  * @param {string} key - S3 key where the object is referenced
  * @param {string} localFilename - S3 destination bucket
@@ -49,12 +49,10 @@ export const uploadObjects = async (
     uploadObject(bucket, object.key, object.localFilename)
   );
 
-  // @ts-ignore
   const results: PromiseSettledResult<string>[] = await Promise.allSettled(
     promises
   );
 
-  // @ts-ignore
   results.forEach((result: PromiseSettledResult<string>) => {
     if (result.status === "rejected") {
       errors.push(`${result.reason.code}: ${result.reason.message}`);
@@ -70,11 +68,11 @@ export const uploadObjects = async (
 };
 
 /**
- *
- * @param bucket
- * @param prefix
- * @param folder
- * @param searchStr
+ * Upload all files for a given folder (just root files) and store them into a S3 bucket under a prefix
+ * @param {string} bucket - AWS S3 bucket where the object will be stored
+ * @param {string} prefix - Prefix where the objects will be under
+ * @param {string} folder - Local folder path where files are stored
+ * @param {string} searchStr - A match string to select all the files to upload, by default ".*".
  */
 export const uploadFolderToPrefix = async (
   bucket: string,
@@ -85,6 +83,7 @@ export const uploadFolderToPrefix = async (
   const folderContent: Dirent[] = await fsPromises.readdir(folder, {
     withFileTypes: true,
   });
+
   const filenames: string[] = folderContent
     .filter((item: Dirent) => item.isFile())
     .map((item: Dirent) => item.name)

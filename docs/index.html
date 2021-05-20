@@ -150,6 +150,24 @@
 				</ul>
 				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">downloadObject</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">,</span><span style="color: #A31515">&quot;existingFile.pdf&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;downloadedFile.pdf&quot;</span><span style="color: #000000">);</span>
 </code></pre>
+				<a href="#upload" id="upload" style="color: inherit; text-decoration: none;">
+					<h3>Upload</h3>
+				</a>
+				<ul>
+					<li>Upload one file from local disk and store into AWS S3 bucket</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">uploadObject</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">,</span><span style="color: #A31515">&quot;s3file.pdf&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;localFile.pdf&quot;</span><span style="color: #000000">);</span>
+</code></pre>
+				<ul>
+					<li>Upload list of files to specific objects</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">uploadObjects</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">,[{ </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;s3file.pdf&quot;</span><span style="color: #000000">, </span><span style="color: #001080">localFilename:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;localFile.pdf&quot;</span><span style="color: #000000"> }]);</span>
+</code></pre>
+				<ul>
+					<li>Upload all files for a given folder (just root files) and store them into a S3 bucket under a prefix  (with filter options)</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">uploadFolderToPrefix</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;s3Folder&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;localFolder&quot;</span><span style="color: #000000">);</span>
+</code></pre>
 				<hr>
 				<p>The documentation for each method supported by this module can be found <a href="https://pedros11.github.io/aws-s3-tools/modules.html">here</a>.</p>
 				<a href="#authentication" id="authentication" style="color: inherit; text-decoration: none;">
