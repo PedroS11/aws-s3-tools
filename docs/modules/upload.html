@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>delete | aws-s3-tools</title>
+	<title>upload | aws-s3-tools</title>
 	<meta name="description" content="Documentation for aws-s3-tools">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">aws-s3-tools</a>
 				</li>
 				<li>
-					<a href="delete.html">delete</a>
+					<a href="upload.html">upload</a>
 				</li>
 			</ul>
-			<h1>Module delete</h1>
+			<h1>Module upload</h1>
 		</div>
 	</div>
 </header>
@@ -72,9 +72,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="delete.html#deletefromkeys" class="tsd-kind-icon">delete<wbr>From<wbr>Keys</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="delete.html#deletefromprefix" class="tsd-kind-icon">delete<wbr>From<wbr>Prefix</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="delete.html#deleteobject" class="tsd-kind-icon">delete<wbr>Object</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="upload.html#uploadfoldertoprefix" class="tsd-kind-icon">upload<wbr>Folder<wbr>ToPrefix</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="upload.html#uploadobject" class="tsd-kind-icon">upload<wbr>Object</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="upload.html#uploadobjects" class="tsd-kind-icon">upload<wbr>Objects</a></li>
 							</ul>
 						</section>
 					</div>
@@ -83,95 +83,55 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="deletefromkeys" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> delete<wbr>From<wbr>Keys</h3>
+					<a name="uploadfoldertoprefix" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> upload<wbr>Folder<wbr>ToPrefix</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>From<wbr>Keys<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, keys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">upload<wbr>Folder<wbr>ToPrefix<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, folder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, searchStr<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UploadObjectsResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/89f5310/lib/api/delete.ts#L38">delete.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/89f5310/lib/api/upload.ts#L79">upload.ts:79</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Delete all objects in the keys list from S3 bucket</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>bucket: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>AWS S3 bucket where the objects are stored</p>
-									</div>
-								</li>
-								<li>
-									<h5>keys: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>List of object keys</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="deletefromprefix" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> delete<wbr>From<wbr>Prefix</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>From<wbr>Prefix<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/89f5310/lib/api/delete.ts#L24">delete.ts:24</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Delete all objects under the given prefix from S3 bucket</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>bucket: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>AWS S3 bucket where the objects are stored</p>
-									</div>
 								</li>
 								<li>
 									<h5>prefix: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>folder: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>searchStr: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;.*&quot;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Prefix where the objects are under</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UploadObjectsResponse</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="deleteobject" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> delete<wbr>Object</h3>
+					<a name="uploadobject" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> upload<wbr>Object</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Object<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">upload<wbr>Object<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, localFilename<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/89f5310/lib/api/delete.ts#L10">delete.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/89f5310/lib/api/upload.ts#L17">upload.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Retrieve the list of objects from AWS S3 bucket under a given prefix and search string</p>
+									<p>Move S3 object from source bucket and key to destination</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -179,20 +139,63 @@
 								<li>
 									<h5>bucket: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>AWS S3 bucket where the objects are stored</p>
+										<p>S3 bucket where the object is stored</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Key for the object that will be deleted</p>
+										<p>S3 key where the object is referenced</p>
+									</div>
+								</li>
+								<li>
+									<h5>localFilename: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>S3 destination bucket</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
-								<li>List of keys inside the bucket, under the path, and filtered</li>
+								<li>The S3 full URL to the file</li>
 							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="uploadobjects" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> upload<wbr>Objects</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">upload<wbr>Objects<span class="tsd-signature-symbol">(</span>bucket<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, objects<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">UploadObjectsData</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UploadObjectsResponse</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/PedroS11/aws-s3-tools/blob/89f5310/lib/api/upload.ts#L42">upload.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Upload list of files to specific objects</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bucket: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>AWS S3 bucket where the objects will be stored</p>
+									</div>
+								</li>
+								<li>
+									<h5>objects: <span class="tsd-signature-type">UploadObjectsData</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List with objects containing local path to be uploaded and S3 key destination</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UploadObjectsResponse</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -207,7 +210,7 @@
 					<li class=" tsd-kind-module">
 						<a href="check.html">check</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="delete.html">delete</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -219,7 +222,7 @@
 					<li class=" tsd-kind-module">
 						<a href="move.html">move</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="upload.html">upload</a>
 					</li>
 				</ul>
@@ -227,13 +230,13 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="delete.html#deletefromkeys" class="tsd-kind-icon">delete<wbr>From<wbr>Keys</a>
+						<a href="upload.html#uploadfoldertoprefix" class="tsd-kind-icon">upload<wbr>Folder<wbr>ToPrefix</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="delete.html#deletefromprefix" class="tsd-kind-icon">delete<wbr>From<wbr>Prefix</a>
+						<a href="upload.html#uploadobject" class="tsd-kind-icon">upload<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="delete.html#deleteobject" class="tsd-kind-icon">delete<wbr>Object</a>
+						<a href="upload.html#uploadobjects" class="tsd-kind-icon">upload<wbr>Objects</a>
 					</li>
 				</ul>
 			</nav>

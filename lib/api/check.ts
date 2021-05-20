@@ -15,7 +15,10 @@ export const objectExists = async (
 
     await s3.headObject({ Bucket: bucket, Key: key }).promise();
   } catch (error) {
-    return false;
+    if (error.statusCode === 404) {
+      return false;
+    }
+    throw error;
   }
   return true;
 };

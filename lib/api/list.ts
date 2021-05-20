@@ -2,6 +2,22 @@ import AWS, { S3 } from "aws-sdk";
 import { ListObjectsV2Output, Object } from "aws-sdk/clients/s3";
 
 /**
+ * Checks if a path matches with a folder
+ * @param {string} path - File path
+ * @returns {boolean} - true if it's a folder, false otherwise
+ */
+const isFolder = (path: string): boolean => path.endsWith("/");
+
+/**
+ * Checks if a path matches a search path
+ * @param {string} path - File path
+ * @param {string} searchPath - Regex with search path
+ * @returns {boolean} - true if it matches, false otherwise
+ */
+const pathMatchesSearchPath = (path: string, searchPath: string): boolean =>
+  !!path.match(searchPath);
+
+/**
  * Retrieve the list of objects from AWS S3 bucket under a given prefix and search string
  * @param {string} bucket - AWS S3 bucket where the objects are stored
  * @param {string} prefix - Prefix where the objects are under
@@ -12,7 +28,7 @@ import { ListObjectsV2Output, Object } from "aws-sdk/clients/s3";
 export const listObjects = async (
   bucket: string,
   prefix: string = "",
-  searchPath: string = "",
+  searchPath: string = ".*",
   maxKeys: number = 100
 ): Promise<string[]> => {
   let continuationToken: string | undefined = undefined;
@@ -34,11 +50,9 @@ export const listObjects = async (
     // @ts-ignore
     let batch: string[] = response.Contents.map(
       (item: Object) => item.Key as string
-    ).filter((key: string) => !key.endsWith("/"));
-
-    if (searchPath) {
-      batch = batch.filter((key: string) => key.match(searchPath));
-    }
+    )
+      .filter((key: string) => !isFolder(key))
+      .filter((key: string) => pathMatchesSearchPath(key, searchPath));
 
     // @ts-ignore
     results = [...results, ...batch];

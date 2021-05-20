@@ -34,7 +34,27 @@ describe("check", () => {
   });
 
   it("should return false if the file does not exist", async () => {
-    headObjectSpy.mockReturnValue(new Error("FILE NOT FOUND"));
+    headObjectSpy.mockReturnValue({
+      promise: jest.fn().mockRejectedValue({
+        statusCode: 500,
+        message: "Unexpected error",
+      }),
+    });
+
+    await expect(objectExists("BucketName", "FileName")).rejects.toEqual({
+      statusCode: 500,
+      message: "Unexpected error",
+    });
+  });
+
+  it("should throw if an error occurs", async () => {
+    headObjectSpy.mockReturnValue({
+      promise: jest.fn().mockRejectedValue({
+        statusCode: 404,
+        message: "Not Found",
+      }),
+    });
+
     expect(await objectExists("BucketName", "FileName")).toBeFalsy();
   });
 });

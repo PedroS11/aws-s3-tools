@@ -19,5 +19,13 @@ module.exports = {
         "no-console": 0,
         "@typescript-eslint/no-unused-vars": 1,
         "no-prototype-builtins": 0
-    }
+    },
+    overrides: [
+        {
+            files: ["*.ts"],
+            rules: {
+                "no-undef": "off"
+            }
+        }
+    ]
 };
