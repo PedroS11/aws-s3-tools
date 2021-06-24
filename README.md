@@ -29,7 +29,7 @@ AWS S3 Tools is a package to make it easier to deal with S3 objects, available o
  - [License](#license)
 
 ## Disclaimer
- > This project was created based on another developed in Python. If you would like to use this methods
+ > This project was created based on another developed in Python. If you would like to use these methods
  in Python, visit [this repo](https://github.com/FerrariDG/aws-s3-tools).
 
 ## Installation
