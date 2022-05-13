@@ -8,7 +8,7 @@
 
 AWS S3 Tools is a package to make it easier to deal with S3 objects, available on [NPM](https://www.npmjs.com/package/aws-s3-tools),  where you can:
                                    
- - Create/Delete bucket
+ - Create/Delete a S3 bucket
  - Check if a S3 bucket exists                                  
  - List S3 bucket content
  - Check if a S3 object exists
