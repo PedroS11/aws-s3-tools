@@ -53,19 +53,25 @@ AWS S3 Tools is a NPM package to make it easier to deal with S3 objects,  where 
 const exists: boolean = await objectExists("BucketName", "FileName");
  ```
 
-### List
-
-- List all objects in a S3 bucket (with filter options)
+- Check if an S3 bucket exists
 
  ```typescript
-const keysList: string[] = await listObjects("BucketName", "FolderName");
+const exists: boolean = await bucketExists("BucketName");
+ ```
+
+### Create
+
+- Create a S3 bucket
+
+ ```typescript
+await createBucket({Bucket: "BucketName"});
  ```
 
 ### Delete
 
 - Delete an object in a S3 bucket
  ```typescript
-await deleteMethods.deleteObject("BucketName", "existingFile.pdf");
+await deleteObject("BucketName", "existingFile.pdf");
 ```
 - Delete all objects under a prefix
 
@@ -80,12 +86,40 @@ const keys = ["folder/test.pdf", "folder/file.csv"];
 await deleteFromKeys("BucketName", keys);
  ```
 
+- Delete a S3 bucket
+
+ ```typescript
+await deleteBucket("BucketName");
+```
+
 ### Download
 
 - Retrieve one object from AWS S3 bucket and store into local disk
 
  ```typescript
 await downloadObject("BucketName","existingFile.pdf", "downloadedFile.pdf");
+ ```
+
+### List
+
+- List all objects in a S3 bucket (with filter options)
+
+ ```typescript
+const keysList: string[] = await listObjects("BucketName", "FolderName");
+ ```
+
+
+### Move
+
+- Move S3 object from source bucket to destination bucket
+
+ ```typescript
+await moveObject("SourceBucketName", "SourceFileKey", "DestinationBucketName", "DestinationFileKey");
+ ```
+
+- Move a list of S3 objects from source bucket to destination
+```typescript
+await moveObjects("SourceBucketName", ["SourceFileKey"], "DestinationBucketName", ["DestinationFileKey"]);
  ```
  
  ### Upload

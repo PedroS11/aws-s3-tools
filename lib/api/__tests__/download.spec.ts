@@ -17,7 +17,7 @@ describe("download", () => {
     writeFileSpy = jest.spyOn(fsPromises, "writeFile").mockResolvedValue();
   });
 
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(jest.restoreAllMocks);
 
   it("should download a file to the local disk", async () => {
     getObjectSpy.mockReturnValue({

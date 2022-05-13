@@ -5,16 +5,19 @@ import { deleteFromKeys, deleteFromPrefix } from "../delete";
 
 describe("delete", () => {
   let s3DeleteObjectSpy: jest.SpyInstance;
+  let s3DeleteBucketSpy: jest.SpyInstance;
 
   beforeEach(() => {
     s3DeleteObjectSpy = jest.fn();
+    s3DeleteBucketSpy = jest.fn();
     // @ts-ignore
     jest.spyOn(AWS, "S3").mockImplementation(() => ({
       deleteObject: s3DeleteObjectSpy,
+      deleteBucket: s3DeleteBucketSpy,
     }));
   });
 
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(jest.restoreAllMocks);
 
   describe("deleteObject", () => {
     it("should delete a file from a s3 bucket", async () => {
@@ -73,6 +76,20 @@ describe("delete", () => {
       expect(deleteObjectSpy).toBeCalledTimes(2);
       expect(deleteObjectSpy).toHaveBeenNthCalledWith(1, "BucketName", keys[0]);
       expect(deleteObjectSpy).toHaveBeenNthCalledWith(2, "BucketName", keys[1]);
+    });
+  });
+
+  describe("deleteBucket", () => {
+    it("should delete a s3 bucket", async () => {
+      s3DeleteBucketSpy.mockReturnValue({
+        promise: jest.fn().mockResolvedValue({}),
+      });
+
+      await deleteMethods.deleteBucket("BucketName");
+
+      expect(s3DeleteBucketSpy).toBeCalledWith({
+        Bucket: "BucketName",
+      });
     });
   });
 });
