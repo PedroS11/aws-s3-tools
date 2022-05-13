@@ -6,12 +6,13 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/PedroS11/riot-valorant-api)
 ![GitHub](https://img.shields.io/github/license/PedroS11/riot-valorant-api)
 
-AWS S3 Tools is a NPM package to make it easier to deal with S3 objects,  where you can:
+AWS S3 Tools is a package to make it easier to deal with S3 objects, available on [NPM](https://www.npmjs.com/package/aws-s3-tools),  where you can:
                                                                          
  - List S3 bucket content
  - Check if an S3 object exists
  - Download S3 objects to local files
  - Delete S3 objects
+ - Upload local files to S3 bucket
  
  ## Table of Contents
  
@@ -28,7 +29,7 @@ AWS S3 Tools is a NPM package to make it easier to deal with S3 objects,  where 
  - [License](#license)
 
 ## Disclaimer
- > This project was created based on another developed in Python. If you would like to use this methods
+ > This project was created based on another developed in Python. If you would like to use these methods
  in Python, visit [this repo](https://github.com/FerrariDG/aws-s3-tools).
 
 ## Installation
