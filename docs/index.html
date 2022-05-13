@@ -64,12 +64,13 @@
 				<p><img src="https://img.shields.io/npm/v/aws-s3-tools?color=brightgreen" alt="npm">
 					<img src="https://img.shields.io/github/repo-size/PedroS11/riot-valorant-api" alt="GitHub repo size">
 				<img src="https://img.shields.io/github/license/PedroS11/riot-valorant-api" alt="GitHub"></p>
-				<p>AWS S3 Tools is a NPM package to make it easier to deal with S3 objects,  where you can:</p>
+				<p>AWS S3 Tools is a package to make it easier to deal with S3 objects, available on <a href="https://www.npmjs.com/package/aws-s3-tools">NPM</a>,  where you can:</p>
 				<ul>
 					<li>List S3 bucket content</li>
 					<li>Check if an S3 object exists</li>
 					<li>Download S3 objects to local files</li>
 					<li>Delete S3 objects</li>
+					<li>Upload local files to S3 bucket</li>
 				</ul>
 				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
 					<h2>Table of Contents</h2>
@@ -93,7 +94,7 @@
 					<h2>Disclaimer</h2>
 				</a>
 				<blockquote>
-					<p>This project was created based on another developed in Python. If you would like to use this methods
+					<p>This project was created based on another developed in Python. If you would like to use these methods
 					in Python, visit <a href="https://github.com/FerrariDG/aws-s3-tools">this repo</a>.</p>
 				</blockquote>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
@@ -117,19 +118,24 @@
 				</ul>
 				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">exists</span><span style="color: #000000">: </span><span style="color: #267F99">boolean</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">objectExists</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;FileName&quot;</span><span style="color: #000000">);</span>
 </code></pre>
-				<a href="#list" id="list" style="color: inherit; text-decoration: none;">
-					<h3>List</h3>
+				<ul>
+					<li>Check if an S3 bucket exists</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">exists</span><span style="color: #000000">: </span><span style="color: #267F99">boolean</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">bucketExists</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#create" id="create" style="color: inherit; text-decoration: none;">
+					<h3>Create</h3>
 				</a>
 				<ul>
-					<li>List all objects in a S3 bucket (with filter options)</li>
+					<li>Create a S3 bucket</li>
 				</ul>
-				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">keysList</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">[] = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">listObjects</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;FolderName&quot;</span><span style="color: #000000">);</span>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">createBucket</span><span style="color: #000000">({</span><span style="color: #001080">Bucket:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">});</span>
 </code></pre>
 				<a href="#delete" id="delete" style="color: inherit; text-decoration: none;">
 					<h3>Delete</h3>
 				</a>
 				<ul>
-					<li>Delete an object in a S3 bucket<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">deleteMethods</span><span style="color: #000000">.</span><span style="color: #795E26">deleteObject</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;existingFile.pdf&quot;</span><span style="color: #000000">);</span>
+					<li>Delete an object in a S3 bucket<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">deleteObject</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;existingFile.pdf&quot;</span><span style="color: #000000">);</span>
 </code></pre>
 					</li>
 					<li>Delete all objects under a prefix</li>
@@ -142,6 +148,11 @@
 				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">keys</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;folder/test.pdf&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;folder/file.csv&quot;</span><span style="color: #000000">];</span>
 <span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">deleteFromKeys</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #001080">keys</span><span style="color: #000000">);</span>
 </code></pre>
+				<ul>
+					<li>Delete a S3 bucket</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">deleteBucket</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">);</span>
+</code></pre>
 				<a href="#download" id="download" style="color: inherit; text-decoration: none;">
 					<h3>Download</h3>
 				</a>
@@ -150,6 +161,27 @@
 				</ul>
 				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">downloadObject</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">,</span><span style="color: #A31515">&quot;existingFile.pdf&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;downloadedFile.pdf&quot;</span><span style="color: #000000">);</span>
 </code></pre>
+				<a href="#list" id="list" style="color: inherit; text-decoration: none;">
+					<h3>List</h3>
+				</a>
+				<ul>
+					<li>List all objects in a S3 bucket (with filter options)</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">keysList</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">[] = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">listObjects</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;BucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;FolderName&quot;</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#move" id="move" style="color: inherit; text-decoration: none;">
+					<h3>Move</h3>
+				</a>
+				<ul>
+					<li>Move S3 object from source bucket to destination bucket</li>
+				</ul>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">moveObject</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;SourceBucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;SourceFileKey&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;DestinationBucketName&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;DestinationFileKey&quot;</span><span style="color: #000000">);</span>
+</code></pre>
+				<ul>
+					<li>Move a list of S3 objects from source bucket to destination<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">moveObjects</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;SourceBucketName&quot;</span><span style="color: #000000">, [</span><span style="color: #A31515">&quot;SourceFileKey&quot;</span><span style="color: #000000">], </span><span style="color: #A31515">&quot;DestinationBucketName&quot;</span><span style="color: #000000">, [</span><span style="color: #A31515">&quot;DestinationFileKey&quot;</span><span style="color: #000000">]);</span>
+</code></pre>
+					</li>
+				</ul>
 				<a href="#upload" id="upload" style="color: inherit; text-decoration: none;">
 					<h3>Upload</h3>
 				</a>
@@ -226,6 +258,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/check.html">check</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/create.html">create</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/delete.html">delete</a>

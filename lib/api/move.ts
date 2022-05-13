@@ -2,7 +2,7 @@ import AWS, { S3 } from "aws-sdk";
 import { deleteObject } from "./delete";
 
 /**
- * Move S3 object from source bucket and key to destination
+ * Move S3 object from source bucket to destination bucket
  * @param {string} sourceBucket - S3 bucket where the object is stored
  * @param {string} sourceKey - S3 key where the object is referenced
  * @param {string} destinationBucket - S3 destination bucket
@@ -34,7 +34,7 @@ export const moveObject = async (
  * @param {string} destinationBucket - S3 destination bucket
  * @param {string[]} destinationKeys - S3 destination keys
  */
-export const moveKeys = async (
+export const moveObjects = async (
   sourceBucket: string,
   sourceKeys: string[],
   destinationBucket: string,

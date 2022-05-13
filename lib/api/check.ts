@@ -22,3 +22,22 @@ export const objectExists = async (
   }
   return true;
 };
+
+/**
+ * Check if bucket exists
+ * @param {string} bucket - Bucket name where the object is stored
+ * @returns {boolean} - true if the bucket exists, otherwise false
+ */
+export const bucketExists = async (bucket: string): Promise<boolean> => {
+  try {
+    const s3: S3 = new AWS.S3({ apiVersion: "2006-03-01" });
+
+    await s3.headBucket({ Bucket: bucket }).promise();
+  } catch (error) {
+    if (error.statusCode === 404) {
+      return false;
+    }
+    throw error;
+  }
+  return true;
+};

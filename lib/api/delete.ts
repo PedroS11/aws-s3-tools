@@ -41,3 +41,13 @@ export const deleteFromKeys = async (
 ): Promise<void> => {
   await Promise.all(keys.map((key: string) => deleteObject(bucket, key)));
 };
+
+/**
+ * Delete a S3 bucket
+ * @param {string} bucket - AWS S3 bucket
+ * */
+export const deleteBucket = async (bucket: string): Promise<void> => {
+  const s3: S3 = new AWS.S3({ apiVersion: "2006-03-01" });
+
+  await s3.deleteBucket({ Bucket: bucket }).promise();
+};

@@ -5,7 +5,7 @@ import * as uploadMethods from "../upload";
 import { UploadObjectsData, UploadObjectsResponse } from "../..";
 
 describe("upload", () => {
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(jest.restoreAllMocks);
 
   describe("uploadObject", () => {
     const fileContent: string = "FILE_CONTENT";

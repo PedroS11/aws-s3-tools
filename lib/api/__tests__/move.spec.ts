@@ -1,6 +1,6 @@
 import AWS from "aws-sdk";
 import * as deleteMethods from "../delete";
-import { moveKeys, moveObject } from "../move";
+import { moveObjects, moveObject } from "../move";
 import * as moveMethods from "../move";
 
 describe("move", () => {
@@ -19,7 +19,7 @@ describe("move", () => {
       .mockResolvedValue();
   });
 
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(jest.restoreAllMocks);
 
   describe("moveObject", () => {
     const sourceBucket = "SOURCE_BUCKET";
@@ -49,7 +49,7 @@ describe("move", () => {
     });
   });
 
-  describe("moveKeys", () => {
+  describe("moveObjects", () => {
     const sourceBucket = "SOURCE_BUCKET";
     const sourceKeys = ["SOURCE_KEY.pdf", "SOURCE_KEY_2.pdf"];
     const destinationBucket = "DESTINATION_BUCKET";
@@ -63,13 +63,13 @@ describe("move", () => {
 
     it("should throw if no source keys are passed", async () => {
       await expect(
-        moveKeys(sourceBucket, [], destinationBucket, destinationKeys)
+        moveObjects(sourceBucket, [], destinationBucket, destinationKeys)
       ).rejects.toThrow("Key list length must be greater than zero");
     });
 
     it("should throw if no source keys length is different from destination keys length", async () => {
       await expect(
-        moveKeys(
+        moveObjects(
           sourceBucket,
           [sourceKeys[0]],
           destinationBucket,
@@ -83,7 +83,7 @@ describe("move", () => {
         promise: jest.fn().mockResolvedValue({}),
       });
 
-      await moveKeys(
+      await moveObjects(
         sourceBucket,
         sourceKeys,
         destinationBucket,
